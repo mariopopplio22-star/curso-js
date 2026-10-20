@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="es" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css"
+    />
+  </head>
+  <body>
+    <section class="section">
+      <div class="container">
+        <div class="columns is-centered">
+          <div class="column is-half">
+            <form class="box" action="" autocomplete="off" id="formulario">
+              <div class="field">
+                <label class="label" for="apellidos">Apellidos</label>
+                <input
+                  type="text"
+                  class="input"
+                  id="apellidos"
+                  minlength="3"
+                  required
+                />
+              </div>
+              <div class="field">
+                <label class="label" for="nombres">Nombres</label>
+                <input
+                  type="text"
+                  class="input"
+                  id="nombres"
+                  minlength="3"
+                  required
+                />
+              </div>
+
+              <div class="field">
+                <label class="label" for="fechanac">Fecha nacimiento</label>
+                <input
+                  type="date"
+                  class="input"
+                  id="fechanac"
+                  min="1999-12-31"
+                  max="2026-10-21"
+                  required
+                />
+              </div>
+
+              <div class="field">
+                <label class="label" for="email">Correo electronico</label>
+                <input type="email" class="input" id="email" required />
+              </div>
+
+              <div class="field">
+                <label class="label" for="experiencia">Experiencia</label>
+                <input
+                  type="number"
+                  class="input"
+                  min="0"
+                  max="30"
+                  value="1"
+                  id="experiencia"
+                  required
+                />
+              </div>
+
+              <div class="field">
+                <label class="label" for="cargo">Cargo</label>
+                <div class="select">
+                  <select name="cargo" id="cargo" required>
+                    <option value=""></option>
+                    <option value="1">Analista</option>
+                    <option value="2">Programador</option>
+                    <option value="3">Jéfe</option>
+                  </select>
+                </div>
+              </div>
+
+              <div>
+                <button class="button" type="submit">Enviar</button>
+                <button class="button" type="reset">Reiniciar</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      //Vamos a detener el evento submit
+      //El evento submit esta asociado al formulario y no al boton
+      const formulario = document.getElementById("formulario");
+
+      //Gestion de eventos
+      formulario.addEventListener("submit", function (event) {
+        //Freno para cualquier evento
+        event.preventDefault();
+
+        if (confirm("¿Estás seguro de proceder?")) {
+          alert("Guardado correctamente");
+        }
+      });
+    </script>
+  </body>
+</html>

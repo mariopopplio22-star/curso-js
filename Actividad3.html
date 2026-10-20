@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css"
+    />
+</head>
+<body>
+
+  <!-- Formulario para realizar una cotización -->
+  <!-- Compra de una PC / portatil -->
+  <!-- Existen cambios obligatorios -->
+  <!-- Generar un cuadro de dialogo con la confirmación-->
+  <!-- Aplicar estilos css-->
+
+  <body>
+    
+    <section class="section">
+      <h2>Proceso de cotización</h2>
+      <div class="container">
+        <div class="columns is-centered">
+          <div class="column is-half">
+            <form class="box" action="" autocomplete="off" id="formulario">
+              <div class="field">
+                <label class="label" for="apellidos">Apellidos del cliente</label>
+                <input
+                  type="text"
+                  class="input"
+                  id="apellidos"
+                  minlength="3"
+                  required
+                />
+              </div>
+              <div class="field">
+                <label class="label" for="nombres">Nombres del cliente</label>
+                <input
+                  type="text"
+                  class="input"
+                  id="nombres"
+                  minlength="3"
+                  required
+                />
+              </div>
+
+              <div class="field">
+                <label class="label" for="producto">Producto Técnico</label>
+                <input
+                  type="text"
+                  class="input"
+                  id="producto"
+                  minlength="3"
+                  required
+                />
+              </div>
+
+              
+
+              <div class="field">
+                <label class="label" for="telefono">Número de teléfono</label>
+                <input
+                  type="text"
+                  class="input"                
+                  id="telefono"
+                  minlength="9"
+                  required
+                />
+              </div>
+
+              <div class="field">
+                <label class="label" for="dni">DNI</label>
+                <input
+                  type="text"
+                  class="input"                
+                  id="dni"
+                  minlength="8"
+                  required
+                />
+              </div>
+
+              <div class="field">
+                <label class="label" for="precio">Precio</label>
+                <input
+                  type="number"
+                  class="input"
+                  value="0"
+                  id="precio"
+                  min="0"
+                  required
+                />
+              </div>
+
+              <div class="field">
+                <label class="label" for="subtotal">Subtotal</label>
+                <input
+                  type="text"
+                  class="input"
+                  value="0"
+                  id="subtotal"
+                  min="0"
+                  required
+                />
+              </div>
+
+              <div class="field">
+                <label class="label" for="igv">IGV</label>
+                <input
+                  type="text"
+                  class="input"
+                  value="0"
+                  id="igv"
+                  min="0"
+                  required
+                />
+              </div>
+
+              <div class="field">
+                <label class="label" for="total">Total</label>
+                <input
+                  type="text"
+                  class="input"
+                  value="0"
+                  id="total"
+                  min="0"
+                  required
+                />
+              </div>
+
+
+              <div>
+                <button class="button" type="submit">Realizar cotización</button>
+                <button class="button" type="reset">Reiniciar</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      //Vamos a detener el evento submit
+      //El evento submit esta asociado al formulario y no al boton
+      const formulario = document.getElementById("formulario");
+
+      //Gestion de eventos
+      formulario.addEventListener("submit", function (event) {
+        //Freno para cualquier evento
+        event.preventDefault();
+
+        if (confirm("¿Estás seguro de proceder?")) {
+          alert("Guardado correctamente");
+        }
+      });
+    </script>
+
+    <script>
+      const subotal = 0
+      const igv = 0
+      const total = 0
+
+      
+    </script>
+  </body>
+
+  
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="text" id="saludo">
+  <h1 id="t1"></h1>
+  <h2 id="t2"></h2>
+  <h3 id="t3"></h3>
+  <h4 id="t4"></h4>
+  <h5 id="t5"></h5>
+  <h6 id="t6"></h6>
+
+  <script>
+    
+    const saludo = document.getElementById("saludo")
+    const t1 = document.getElementById("t1")
+    const t2 = document.getElementById("t2")
+    const t3 = document.getElementById("t3")
+    const t4 = document.getElementById("t4")
+    const t5 = document.getElementById("t5")
+    const t6 = document.getElementById("t6")
+
+    saludo.addEventListener("keyup", function(){
+      t1.innerHTML = saludo.value 
+      t2.innerHTML = saludo.value 
+      t3.innerHTML = saludo.value 
+      t4.innerHTML = saludo.value 
+      t5.innerHTML = saludo.value 
+      t6.innerHTML = saludo.value 
+    })
+  </script>
+  
+</body>
+</html>

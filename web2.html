@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button id="so">Sistema operativo</button>
+  <button id="bd">Base de datos</button>
+  <button id="lp">Lenguaje de programación</button>
+  <input type="text" id="mensaje">
+  <h1 id="texto"></h1>
+  
+  <script>
+    const b1 = document.getElementById("so")
+    const b2 = document.getElementById("bd")
+    const b3 = document.getElementById("lp")
+    const caja = document.getElementById("mensaje")
+    const contenido = document.getElementById("texto")
+
+    b1.addEventListener("click", function(){
+      console.log("Windows 10", "Ubuntu", "Linux")
+    })
+
+    b2.addEventListener("click", function(){
+      console.log("MS SQL Server", "SQL Lite")
+    })
+
+    b3.addEventListener("click", function(){
+      console.log("Python", "JS", "PHP")
+    })
+
+    //Eventos de teclado:
+    //keyup(liberar ,keydown(presionado), keypress(up>down))
+    caja.addEventListener("keyup", function(){
+      //inerHTML <etiqueta>VALOR</etiqueta>
+      //caja.value, value representa el CONTENIDO de la caja de texto
+      contenido.innerHTML = caja.value
+    })
+  </script>
+
+</body>
+</html>
