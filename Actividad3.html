@@ -20,8 +20,8 @@
   <body>
     
     <section class="section">
-      <h2>Proceso de cotización</h2>
       <div class="container">
+        <h2 class="title has-text-centered">Cotización</h2>
         <div class="columns is-centered">
           <div class="column is-half">
             <form class="box" action="" autocomplete="off" id="formulario">
@@ -82,15 +82,8 @@
               </div>
 
               <div class="field">
-                <label class="label" for="precio">Precio</label>
-                <input
-                  type="number"
-                  class="input"
-                  value="0"
-                  id="precio"
-                  min="0"
-                  required
-                />
+                <label class="label" for="precio">Precio Base (Sin IGV)</label>
+                <input type="number" class="input" value="0" id="precio" placeholder="Ingrese el precio" min="0" step="0.01" required />
               </div>
 
               <div class="field">
@@ -98,10 +91,9 @@
                 <input
                   type="text"
                   class="input"
-                  value="0"
+                  value="0.00"
                   id="subtotal"
-                  min="0"
-                  required
+                  readonly
                 />
               </div>
 
@@ -110,10 +102,9 @@
                 <input
                   type="text"
                   class="input"
-                  value="0"
+                  value="0.00"
                   id="igv"
-                  min="0"
-                  required
+                  readonly
                 />
               </div>
 
@@ -122,10 +113,9 @@
                 <input
                   type="text"
                   class="input"
-                  value="0"
+                  value="0.00"
                   id="total"
-                  min="0"
-                  required
+                  readonly
                 />
               </div>
 
@@ -141,27 +131,32 @@
     </section>
 
     <script>
-      //Vamos a detener el evento submit
-      //El evento submit esta asociado al formulario y no al boton
+      const precio = document.getElementById("precio");
+      const subtotal = document.getElementById("subtotal");
+      const igv = document.getElementById("igv");
+      const total = document.getElementById("total");
       const formulario = document.getElementById("formulario");
 
-      //Gestion de eventos
-      formulario.addEventListener("submit", function (event) {
-        //Freno para cualquier evento
+      precio.addEventListener("input", function(){
+        const precioIngreso = parseFloat(precio.value) || 0;
+
+        const subtotalCal = precioIngreso / 1.18;
+        const calculoigv =  precioIngreso - subtotalCal;
+        const totalCal = precioIngreso;
+
+        subtotal.value = subtotalCal.toFixed(2);
+        igv.value = calculoigv.toFixed(2);
+        total.value = totalCal.toFixed(2);
+      })
+
+      formulario.addEventListener("submit", function(){
         event.preventDefault();
 
-        if (confirm("¿Estás seguro de proceder?")) {
-          alert("Guardado correctamente");
+        if (confirm("¿Estas seguro de proceder con esta cotización?")){
+          alert("!Cotización hecha de manera correcta!")
         }
-      });
-    </script>
+      })
 
-    <script>
-      const subotal = 0
-      const igv = 0
-      const total = 0
-
-      
     </script>
   </body>
 
