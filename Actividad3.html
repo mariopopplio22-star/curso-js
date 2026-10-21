@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Cotización de producto</title>
   <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css"
     />
+  <link rel="stylesheet" href="css/actividad3.css" />
 </head>
 <body>
 
@@ -17,112 +18,81 @@
   <!-- Generar un cuadro de dialogo con la confirmación-->
   <!-- Aplicar estilos css-->
 
-  <body>
-    
     <section class="section">
       <div class="container">
+        <p class="eyebrow has-text-centered">COMPRA DE EQUIPO</p>
         <h2 class="title has-text-centered">Cotización</h2>
+        <p class="subtitulo has-text-centered">Completa los datos para calcular el precio final.</p>
         <div class="columns is-centered">
           <div class="column is-half">
-            <form class="box" action="" autocomplete="off" id="formulario">
-              <div class="field">
-                <label class="label" for="apellidos">Apellidos del cliente</label>
-                <input
-                  type="text"
-                  class="input"
-                  id="apellidos"
-                  minlength="3"
-                  required
-                />
-              </div>
-              <div class="field">
-                <label class="label" for="nombres">Nombres del cliente</label>
-                <input
-                  type="text"
-                  class="input"
-                  id="nombres"
-                  minlength="3"
-                  required
-                />
-              </div>
-
-              <div class="field">
-                <label class="label" for="producto">Producto Técnico</label>
-                <input
-                  type="text"
-                  class="input"
-                  id="producto"
-                  minlength="3"
-                  required
-                />
+            <form class="box cotizacion" action="" autocomplete="off" id="formulario">
+              <h3 class="grupo-titulo">Datos del cliente</h3>
+              <div class="campos-grid">
+                <div class="field">
+                  <label class="label" for="nombres">Nombres</label>
+                  <input type="text" class="input" id="nombres" minlength="3" placeholder="Ej. María" required />
+                </div>
+                <div class="field">
+                  <label class="label" for="apellidos">Apellidos</label>
+                  <input type="text" class="input" id="apellidos" minlength="3" placeholder="Ej. Pérez" required />
+                </div>
+                <div class="field">
+                  <label class="label" for="telefono">Número de teléfono</label>
+                  <input type="text" class="input" id="telefono" minlength="9" placeholder="Tu número de contacto" required />
+                </div>
+                <div class="field">
+                  <label class="label" for="dni">DNI</label>
+                  <input type="text" class="input" id="dni" minlength="8" placeholder="Tu número de DNI" required />
+                </div>
               </div>
 
-              
-
-              <div class="field">
-                <label class="label" for="telefono">Número de teléfono</label>
-                <input
-                  type="text"
-                  class="input"                
-                  id="telefono"
-                  minlength="9"
-                  required
-                />
+              <h3 class="grupo-titulo">Producto y precio</h3>
+              <div class="campos-grid">
+                <div class="field seleccion-producto">
+                  <label class="label">Selecciona un producto</label>
+                  <div class="selector-productos">
+                    <input type="radio" id="productoLaptop" name="producto" value="Laptop" required checked />
+                    <label for="productoLaptop">
+                      <img src="images/portatil.webp" alt="" />
+                      <span>Laptop</span>
+                    </label>
+                    <input type="radio" id="productoEscritorio" name="producto" value="Computadora de escritorio" />
+                    <label for="productoEscritorio">
+                      <img src="images/Computadora-escritorio.webp" alt="" />
+                      <span>Computadora de escritorio</span>
+                    </label>
+                    <input type="radio" id="productoMonitor" name="producto" value="Monitor" />
+                    <label for="productoMonitor">
+                      <img src="images/monitor.webp" alt="" />
+                      <span>Monitor</span>
+                    </label>
+                  </div>
+                </div>
+                <div class="field">
+                  <label class="label" for="precio">Precio con IGV (S/)</label>
+                  <input type="number" class="input" value="0" id="precio" placeholder="Ingrese el precio" min="0" step="0.01" required />
+                </div>
               </div>
 
-              <div class="field">
-                <label class="label" for="dni">DNI</label>
-                <input
-                  type="text"
-                  class="input"                
-                  id="dni"
-                  minlength="8"
-                  required
-                />
+              <h3 class="grupo-titulo">Resumen de la cotización</h3>
+              <div class="resumen-grid">
+                <div class="field">
+                  <label class="label" for="subtotal">Subtotal</label>
+                  <input type="text" class="input" value="0.00" id="subtotal" readonly />
+                </div>
+                <div class="field">
+                  <label class="label" for="igv">IGV (18%)</label>
+                  <input type="text" class="input" value="0.00" id="igv" readonly />
+                </div>
+                <div class="field total-field">
+                  <label class="label" for="total">Total (S/)</label>
+                  <input type="text" class="input" value="0.00" id="total" readonly />
+                </div>
               </div>
 
-              <div class="field">
-                <label class="label" for="precio">Precio Base (Sin IGV)</label>
-                <input type="number" class="input" value="0" id="precio" placeholder="Ingrese el precio" min="0" step="0.01" required />
-              </div>
-
-              <div class="field">
-                <label class="label" for="subtotal">Subtotal</label>
-                <input
-                  type="text"
-                  class="input"
-                  value="0.00"
-                  id="subtotal"
-                  readonly
-                />
-              </div>
-
-              <div class="field">
-                <label class="label" for="igv">IGV</label>
-                <input
-                  type="text"
-                  class="input"
-                  value="0.00"
-                  id="igv"
-                  readonly
-                />
-              </div>
-
-              <div class="field">
-                <label class="label" for="total">Total</label>
-                <input
-                  type="text"
-                  class="input"
-                  value="0.00"
-                  id="total"
-                  readonly
-                />
-              </div>
-
-
-              <div>
-                <button class="button" type="submit">Realizar cotización</button>
-                <button class="button" type="reset">Reiniciar</button>
+              <div class="acciones">
+                <button class="button boton-principal" type="submit">Realizar cotización</button>
+                <button class="button boton-secundario" type="reset">Reiniciar</button>
               </div>
             </form>
           </div>
@@ -136,7 +106,6 @@
       const igv = document.getElementById("igv");
       const total = document.getElementById("total");
       const formulario = document.getElementById("formulario");
-
       precio.addEventListener("input", function(){
         const precioIngreso = parseFloat(precio.value) || 0;
 
@@ -149,7 +118,7 @@
         total.value = totalCal.toFixed(2);
       })
 
-      formulario.addEventListener("submit", function(){
+      formulario.addEventListener("submit", function(event){
         event.preventDefault();
 
         if (confirm("¿Estas seguro de proceder con esta cotización?")){
@@ -158,8 +127,5 @@
       })
 
     </script>
-  </body>
-
-  
 </body>
 </html>
