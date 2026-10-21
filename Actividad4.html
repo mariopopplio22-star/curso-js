@@ -1,28 +1,116 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-B/GM4XqrwHnWXNOWMbloTmrYXZg10cakYGmpfsR/bbzQ6JAJI4ihuyADKLnBgrCe"
+      crossorigin="anonymous"
+    />
+    <script
+      type="module"
+      src="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-1a/pXj49ZQ1aHEmrJ+gMw1otqoVsYwlEnlD8mIfY2TV03r20Y0CN7uqx1tQogjPL"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <!-- Construir un CUESTIONARIO (5 interrogantes) -->
+    <!-- Por cada Pregunta -->
+    <!-- 3 alternativas -->
+    <!-- Utilizar botones de desplazamiento para la navegacion, Ej botones anterior y siguiente-->
+    <!-- Los datos que se irán mostrando deben estar en un OBJETO -->
+    <section>
+      <h1 id="tituloPregunta">Preguntas</h1>
+      <p id="pregunta"></p>
 
-  <!-- Construir un CUESTIONARIO (5 interrogantes) -->
-  <!-- Por cada Pregunta -->
-  <!-- 3 alternativas -->
-  <!-- Utilizar botones de desplazamiento para la navegacion, Ej botones anterior y siguiente--> 
-  <!-- Los datos que se irán mostrando deben estar en un OBJETO --> 
+      <div class="form-field">
+        <input class="radio" name="radios" type="radio" id="radio1" />
+        <label for="radio1" id="opcion1"></label>
+      </div>
+      <div class="form-field">
+        <input class="radio" name="radios" type="radio" id="radio2" />
+        <label for="radio2" id="opcion2"></label>
+      </div>
+      <div class="form-field">
+        <input class="radio" name="radios" type="radio" id="radio3" />
+        <label for="radio3" id="opcion3"></label>
+      </div>
+      <button id="anterior" type="button" class="btn-outline theme-primary">Anterior</button>
+      <button id="siguiente" type="button" class="btn-solid theme-primary">Siguiente</button>
+    </section>
 
-  <script>
-    const cuestionario = {
-      titulo: "Evaluación",
-      supervisor: "Juan Pérez",
-      nivel: "intermedio",
-      contenido: [
-        
-      ]
-    }
-  </script>
-  
-</body>
+    <script>
+      const cuestionario = {
+        titulo: "Evaluación lenguajes de programacion ",
+        supervisor: "Juan Pérez",
+        nivel: "intermedio",
+        contenido: [
+          {
+            pregunta: "¿Qué tipo de lenguaje es JavaScript?",
+            opciones: [
+              "Lenguaje de programación interpretado",
+              "Lenguaje de marcado",
+              "Sistema de gestión de bases de datos",
+            ],
+          },
+          {
+            pregunta:
+              "¿Cuál de estos lenguajes se usa principalmente para estructurar páginas web?",
+            opciones: ["HTML", "Python", "C++"],
+          },
+          {
+            pregunta: "¿Qué característica distingue a Python?",
+            opciones: [
+              "Su sintaxis suele ser legible y concisa",
+              "Solo puede ejecutarse en navegadores",
+              "Se usa exclusivamente para diseñar páginas",
+            ],
+          },
+        ],
+      };
+      let indice = 0;
+
+      function mostrarPregunta() {
+        const preguntaActual = cuestionario.contenido[indice];
+
+        document.getElementById("pregunta").textContent =
+          preguntaActual.pregunta;
+
+        document.getElementById("opcion1").textContent =
+          preguntaActual.opciones[0];
+        document.getElementById("opcion2").textContent =
+          preguntaActual.opciones[1];
+        document.getElementById("opcion3").textContent =
+          preguntaActual.opciones[2];
+
+        document.getElementById("radio1").checked = false;
+        document.getElementById("radio2").checked = false;
+        document.getElementById("radio3").checked = false;
+      }
+
+      document
+        .getElementById("anterior")
+        .addEventListener("click", function () {
+          if (indice > 0) {
+            indice--;
+            mostrarPregunta();
+          }
+        });
+
+      document
+        .getElementById("siguiente")
+        .addEventListener("click", function () {
+          if (indice < cuestionario.contenido.length - 1) {
+            indice++;
+            mostrarPregunta();
+          }
+        });
+
+      mostrarPregunta();
+    </script>
+  </body>
 </html>
