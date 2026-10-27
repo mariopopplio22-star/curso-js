@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <script>
+    //JSON = JavaScript Object notation
+    //Sirve como interfaz de comunicación entre sistemas heterogéneos
+
+    //clave: [] Arreglo
+    //clave: {} Objeto
+    //clave: [{},{},{}] Arreglo de objetos
+    //clave: {[],[].[]}
+    const fichaPersonal = {
+      apellidos: "Mario Bautista",
+      nombres: "Mario",
+      telefonos: ["929936037" , "956779222"],
+      locacion: {
+        departamento: "Ica",
+        provincia: "Chincha",
+        distrito: "Alto Larán",
+        direccion: "13 de junio",
+        referencia: null
+
+      }
+    }
+
+    //Crear JSON (cadena simple)
+    const jsonBasico = `{"carrera": "Ingeniería de software", "ciclo": "IV", "curso": "Seminario I"}`
+
+
+    //Convertir OBJECT > JSON (Cadena de caracteres)
+    console.log(JSON.stringify(fichaPersonal))
+
+    //Mostrar el json Basico
+    console.log(jsonBasico)
+
+    //JSCON > OBJETO
+    console.log(JSON.parse(jsonBasico))
+
+
+  </script>
+  
+</body>
+</html>

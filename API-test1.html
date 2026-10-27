@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <script>
+    async function obtenerDatos() {
+      const API_URL = `https://api.restcountries.com/countries/v5?q=canada`
+      
+      try {
+        const respuesta = await fetch(API_URL,{
+           headers: { 'Authorization': 'Bearer rc_live_28574735132140e1b80657bab0907d5d' }
+
+        })
+
+        if (!respuesta.ok){
+          throw new Error(`No es posible conectarse al servidor`)
+        }
+
+      } catch(e){
+      console.error(`No se pudo concretar la operación`)
+      }
+    }
+    
+    obtenerDatos()
+  </script>
+  
+</body>
+</html>
